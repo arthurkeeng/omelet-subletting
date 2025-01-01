@@ -1,6 +1,6 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useCallback } from 'react'
+import React, { Suspense, useCallback } from 'react'
 import { IconType } from 'react-icons'
 import qs from 'query-string'
 interface CategoryBoxProps {
@@ -48,6 +48,9 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     }, [label, params, router]);
     
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
+
     <div className={`flex flex-col items-center justify-center
         gap-2 p-3 border-b-2 hover:text-neutral-600 transition cursor-pointer
         ${selected ? "border-b-neutral-500" : "border-transparent"}
@@ -59,6 +62,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         {label}
       </div>
     </div>
+    </Suspense>
   )
 }
 

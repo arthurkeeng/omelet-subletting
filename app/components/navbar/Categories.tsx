@@ -7,6 +7,7 @@ import CategoryBox from "../CategoryBox"
 import { usePathname, useSearchParams } from "next/navigation"
 import { FaHouseCrack } from "react-icons/fa6"
 import { SiHiltonhotelsandresorts } from "react-icons/si"
+import { Suspense } from "react"
 
 export const categories =[
     {
@@ -89,6 +90,9 @@ const Categories = () => {
   const isMainPage = pathname === '/'
   if(!isMainPage)return null
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
+
     <Container>
 
     <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
@@ -104,6 +108,7 @@ const Categories = () => {
     </div>
 
     </Container>
+    </Suspense>
   )
 }
 
