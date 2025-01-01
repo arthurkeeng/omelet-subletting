@@ -9,7 +9,7 @@ declare global{
     let cloudinary : any
 }
 interface ImageUploadProps{
-    onChange : (value) => void, 
+    onChange : (value : string) => void, 
     value : string
 }
 const ImageUpload:React.FC<ImageUploadProps> = ({
