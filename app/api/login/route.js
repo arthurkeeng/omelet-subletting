@@ -26,7 +26,7 @@ export async function POST(request) {
     throw new Error("incorrect password")
    }
 
-   createSession(user.email)
+   await createSession(user.email)
 
    return new NextResponse(JSON.stringify(user) , {status : 201})
 
