@@ -8,11 +8,11 @@ import toast from 'react-hot-toast'
 import ListingCard from '../components/listings/ListingCard'
 
 
-interface TripsProps{
+interface PropertiesProps{
     reservations : any , 
     currentUser ?: any | null
 }
-const Trips:React.FC<TripsProps> = ({
+const Properties:React.FC<PropertiesProps> = ({
     reservations , currentUser
 }) => {
     const router = useRouter();
@@ -20,9 +20,10 @@ const Trips:React.FC<TripsProps> = ({
 
     const onCancel = useCallback((id : string)=>{
         setDeletingId(id)
-        axios.delete(`/api/reservation/${id}`)
+        axios.delete(`/api/listings/${id}`)
         .then(()=>{
-            toast.success("Reservation Canceled")
+            toast.success("Listing Deleted")
+            router.refresh()
         }).catch((e)=> {
             toast.error("Failed to Cancel Reservation");
         }).finally(()=>{
@@ -33,7 +34,7 @@ const Trips:React.FC<TripsProps> = ({
   return (
     <Container>
         <Heading 
-        title='Trips'
+        title='Properties'
         subtitle="Where You've Been And Where You're Going"
         />
         <div className="mt-10
@@ -49,7 +50,7 @@ const Trips:React.FC<TripsProps> = ({
             actionId={reservation._id}
             onAction={onCancel}
             disabled={deletingId === reservation._id}
-            actionLabel='Cancel Reservation'
+            actionLabel='Delete Listing'
             currentUser={currentUser}
 
             />
@@ -59,4 +60,4 @@ const Trips:React.FC<TripsProps> = ({
   )
 }
 
-export default Trips
+export default Properties

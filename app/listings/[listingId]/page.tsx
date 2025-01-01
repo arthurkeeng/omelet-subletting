@@ -1,5 +1,5 @@
 import { getCurrentUser } from "@/app/actions/getCurrentUser"
-import  getReservations  from "@/app/actions/getReservations"
+import  getReservations  from "@/app/actions/getFavorites"
 import getListingById from "@/app/actions/getListingById"
 import EmptyState from "@/app/components/EmptyState"
 import ListingClient from "./ListingClient"

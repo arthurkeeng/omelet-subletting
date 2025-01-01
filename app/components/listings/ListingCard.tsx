@@ -30,6 +30,7 @@ currentUser,
 
     const location = getByValue(data.locationValue)
 
+    console.log('the reservation is ' , reservation)
     const handleCancel = useCallback((
         e:React.MouseEvent<HTMLButtonElement>
     )=>{
@@ -42,13 +43,13 @@ currentUser,
 
     const price = useMemo(()=>{
         if (reservation){
-            return reservation.totalPrice
+            return reservation.totalPrice || reservation.price
         }
-        return data.price
+        return data.price 
     },[reservation , data.price])
 
     const reservationDate = useMemo(()=>{
-        if(!reservation){
+        if(!reservation || !reservation.startDate || !reservation.endDate){
             return null
         }
         const start = new Date(reservation.startDate)
@@ -76,6 +77,11 @@ currentUser,
                 currentUser = {currentUser}
                 />
             </div>
+        </div>
+        <div className="div font-semibold
+        text-lg
+        ">
+            {data?.title}
         </div>
             <div className="div font-semibold
             text-lg

@@ -3,9 +3,7 @@
 import Heading from '@/app/components/Heading'
 import HeartButton from '@/app/components/HeartButton'
 import useCountries from '@/app/hooks/useCountries'
-import Listing from '@/app/models/Listing.Model'
 import Image from 'next/image'
-import ListingInfo from './ListingInfo'
 interface ListingAdProps{
     title : string , 
     locationValue :string , 

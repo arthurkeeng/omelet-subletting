@@ -1,7 +1,7 @@
 import { getCurrentUser } from '../actions/getCurrentUser'
-import getFavorites from '@/app/actions/getFavorites'
+import getProperties from '@/app/actions/getProperties'
 import EmptyState from '../components/EmptyState'
-import Trips from './Trips';
+import Properties from './Properties';
 
 const page = async () => {
     const currentUser = await getCurrentUser();
@@ -13,24 +13,24 @@ const page = async () => {
         />
     }
 
-    const favorites = await getFavorites({
+    const favorites = await getProperties({
         userId : currentUser._id
     })
 
 
     if(favorites.length === 0){
         return <EmptyState
-        title='No Favorites Found'
-        subtitle='Looks like you havent Liked any property'
+        title='No Property Found'
+        subtitle='Looks like you havent Listed any property'
         />
     }
   return (
-    <Trips
+    <Properties
     reservations = {favorites}
     currentUser = {currentUser}
     >
 
-    </Trips>
+    </Properties>
   )
 }
 

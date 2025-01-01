@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import {getCurrentUser} from '@/app/actions/getCurrentUser'
 import Listing from "@/app/models/Listing.Model"
+import User from "@/app/models/User.Model"
 
 export async function POST(request) {
+
   try {
     const user = await getCurrentUser()
     console.log('the user' , user)
@@ -26,6 +28,9 @@ export async function POST(request) {
       price : parseInt(price , 10) , user : user._id
     })
 
+    await User.findByIdAndUpdate(user._id, {
+      $push: { listings: listing._id }
+    });
        return new NextResponse(JSON.stringify(listing) , {status : 201})
     ;
 
@@ -37,5 +42,4 @@ export async function POST(request) {
     );
   }
 }
-
 
