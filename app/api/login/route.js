@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 
 async function createSession(email){
-  ;(await cookies()).set('omeenee-session' , email , {
+  (await cookies()).set('omeenee-session' , email , {
     httpOnly : true , secure : true , sameSite : "strict" , 
     maxAge : 60 * 60 * 24 * 3 , path : "/"
   })
