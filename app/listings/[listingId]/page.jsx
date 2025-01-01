@@ -5,10 +5,10 @@ import EmptyState from "@/app/components/EmptyState"
 import ListingClient from "./ListingClient"
 
 
-interface IParams{
-    listingId : string
-}
-const page = async ({params} : {params : IParams}) => {
+// interface IParams{
+//     listingId : string
+// }
+const page = async ({params} ) => {
     const listing = await getListingById(
         params
 
