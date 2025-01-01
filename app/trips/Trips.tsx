@@ -23,7 +23,8 @@ const Trips:React.FC<TripsProps> = ({
         axios.delete(`/api/reservation/${id}`)
         .then(()=>{
             toast.success("Reservation Canceled")
-        }).catch((e)=> {
+        }).catch((error : any)=> {
+            console.log(error)
             toast.error("Failed to Cancel Reservation");
         }).finally(()=>{
             setDeletingId("")
