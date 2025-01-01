@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { getCurrentUser } from "./app/actions/getCurrentUser"
+// import { getCurrentUser } from "./app/actions/getCurrentUser"
 
 export async function middleware(request){
  
@@ -18,5 +18,5 @@ export async function middleware(request){
 }
 
 export const config = {
-    matcher : ["/" , '/rooms/add' , '/rooms/my']
+    matcher : ["/" ]
 }
