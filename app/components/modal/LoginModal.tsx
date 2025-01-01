@@ -96,7 +96,7 @@ const LoginModal = () => {
             ">
                 <div className='justify-center flex flex-row items-center gap-2'>
                     <div>
-                        Don't Have an Account?
+                        Don&#39;t Have an Account?
                     </div>
                     <div
                     className='cursor-pointer text-neutral-800 

@@ -9,6 +9,7 @@ import markerIcon from 'leaflet/dist/images/marker-icon.png'
 import markerShadow from 'leaflet/dist/images/marker-shadow.png'
 
 // @ts-ignore
+// @ts-expect-error
 delete l.Icon.Default.prototype._getIconUrl;
 
 l.Icon.Default.mergeOptions({
