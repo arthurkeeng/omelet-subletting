@@ -6,6 +6,13 @@ import User from "../../models/User.Model";
 import bcrypt from 'bcrypt'
 import { cookies } from "next/headers";
 
+
+async function createSession(email){
+  ;(await cookies()).set('omeenee-session' , email , {
+    httpOnly : true , secure : true , sameSite : "strict" , 
+    maxAge : 60 * 60 * 24 * 3 , path : "/"
+  })
+}
 export async function POST(request) {
   try {
     let  body = await request.json()
@@ -19,10 +26,7 @@ export async function POST(request) {
     throw new Error("incorrect password")
    }
 
-  ;(await cookies()).set('omeenee-session' , user.email , {
-    httpOnly : true , secure : true , sameSite : "strict" , 
-    maxAge : 60 * 60 * 24 * 3 , path : "/"
-  })
+   createSession(user.email)
 
    return new NextResponse(JSON.stringify(user) , {status : 201})
 
