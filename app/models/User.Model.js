@@ -17,13 +17,13 @@ const UserSchema = new mongoose.Schema({
         reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reservation" }]
     })
 
-UserSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
-        try {
-          await Account.deleteMany({ user: this._id });
-          next();
-        } catch (error) {
-          next(error);
-        }
-});
+// UserSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
+//         try {
+//           await Account.deleteMany({ user: this._id });
+//           next();
+//         } catch (error) {
+//           next(error);
+//         }
+// });
 const User = mongoose.models?.User || mongoose.model("User" , UserSchema);
 export default User
