@@ -11,7 +11,10 @@ export default async function Home() {
   
 
   if(!listings || listings.length == 0){
-    return <EmptyState/>
+    return <EmptyState
+    title="No Listing At the Moment"
+    subtitle=""
+    />
   }
   return (
    <Container>
@@ -20,7 +23,7 @@ export default async function Home() {
     lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6
     gap-6
     ">{
-      listings.map(listing =>(
+      listings.map((listing :any ) =>(
         <ListingCard key={listing._id} 
         data = {listing}
         currentUser = {user}
