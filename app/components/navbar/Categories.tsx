@@ -9,6 +9,8 @@ import { FaHouseCrack } from "react-icons/fa6"
 import { SiHiltonhotelsandresorts } from "react-icons/si"
 import { Suspense } from "react"
 
+export const dynamic = 'force-dynamic'
+
 export const categories =[
     {
         label : "Beach", 
