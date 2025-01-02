@@ -1,4 +1,4 @@
-
+'use server'
 
 import Reservation from "@/app/models/Reservation.Model"
 import User from "@/app/models/User.Model"

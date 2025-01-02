@@ -1,5 +1,5 @@
 
-
+'use server'
 import User from "@/app/models/User.Model"
 import Listing from "@/app/models/Listing.Model"
 

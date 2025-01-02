@@ -1,5 +1,5 @@
 
-
+'use server'
 import Listing from "@/app/models/Listing.Model"
 export default async function getListings(){
 
