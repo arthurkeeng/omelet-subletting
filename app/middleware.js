@@ -1,6 +1,7 @@
+import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-export function middleware(request) {
+export async function middleware(request) {
   const pathname = request.nextUrl.pathname;
 
   // Exclude `_not-found` and `/404` routes from processing cookies
@@ -9,8 +10,7 @@ export function middleware(request) {
   }
 
   // Example of middleware logic for authenticated routes
-  const cookie = request.cookies.get('omeenee-session');
-
+  const cookie = (await cookies()).set('omeenee-session')
   if (!cookie) {
     return NextResponse.redirect(new URL('/login', request.url));
   }

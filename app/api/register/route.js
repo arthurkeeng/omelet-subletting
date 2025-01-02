@@ -29,13 +29,13 @@ export async function POST(request) {
 
 
 
-export async function GET(request) {
-  const body = await request.json();
-  return new Response(
-    JSON.stringify({ message: 'User created', data: body }),
-    {
-      status: 201,
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
-}
+// export async function GET(request) {
+//   const body = await request.json();
+//   return new Response(
+//     JSON.stringify({ message: 'User created', data: body }),
+//     {
+//       status: 201,
+//       headers: { 'Content-Type': 'application/json' },
+//     }
+//   );
+// }

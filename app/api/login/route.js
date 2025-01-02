@@ -13,6 +13,8 @@ async function createSession(email){
     maxAge : 60 * 60 * 24 * 3 , path : "/"
   })
 }
+
+
 export async function POST(request) {
   try {
     let  body = await request.json()
@@ -42,13 +44,13 @@ export async function POST(request) {
 
 
 
-export async function GET(request) {
-  const body = await request.json();
-  return new Response(
-    JSON.stringify({ message: 'User created', data: body }),
-    {
-      status: 201,
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
-}
+// export async function GET(request) {
+//   const body = await request.json();
+//   return new Response(
+//     JSON.stringify({ message: 'User created', data: body }),
+//     {
+//       status: 201,
+//       headers: { 'Content-Type': 'application/json' },
+//     }
+//   );
+// }

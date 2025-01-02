@@ -1,10 +1,8 @@
 'use server'
 
 import {  cookies } from "next/headers";
-// import User from "../../models/User.Model";
 import User from '../models/User.Model'
 import dbConnect from '@/app/lib/mongodb'
-
 
 export const getCurrentUser = async ()=>{
     try {
