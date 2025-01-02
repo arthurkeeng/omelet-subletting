@@ -10,7 +10,7 @@ export async function middleware(request) {
   }
 
   // Example of middleware logic for authenticated routes
-  const cookie = (await cookies()).set('omeenee-session')
+  const cookie = (await cookies()).get('omeenee-session')
   if (!cookie) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
